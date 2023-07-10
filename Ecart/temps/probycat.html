@@ -1,0 +1,29 @@
+{% extends 'base1.html' %}
+{% block content %}
+
+ <div class="row mx-auto ">
+    {% for i in all %}
+<div class="col-sm-12 col-lg-3 mt-4 portfolio-item">
+     <div class="card p-3" style="width:13rem;height:24rem;" >
+
+    <img src="{{i.image.url}}" class="card-img-top" width="200" height="350" alt="">
+         <div>
+                <div class="card-body">
+                    <a href="" ><h10 class="card-title" >{{i.name}}</h10></a>
+                <p>Rs:{{i.price}}</p>
+              <a href="{{i.image.url}}"  data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'apps:prodetails' i.slug %}" class="btn btn-primary p-1" >Buy Now</a>
+                </div>
+         </div>
+          </div>
+</div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}
+

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block cat %}
+<div class="row">
+{% for i in allcategories %}
+       <div class="col-lg-3 col-md-4 col-6 mt-3">
+            <div class="icon-box">
+              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+              <h3><a href="{% url 'apps:probycat' i.slug %}">{{i.name}}</a></h3>
+            </div>
+          </div>
+{% endfor %}
+</div>
+{% endblock cat %}
+{% block content %}
+
+    {% for i in product_list %}
+<div class="col-sm-12 col-lg-3 mt-4 portfolio-item">
+     <div class="card p-3" style="width: 16rem;height:30rem;">
+    <img src="{{i.image.url}}" class="card-img-top" width="150" height="400" alt="">
+            <div>
+                <div class="card-body">
+                    <a href="" ><h4 class="card-title" ><b>{{i.name}}</b></h4></a>
+              <p>Rs:{{i.price}}</p>
+              <a href="{{i.image.url}}"  data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-plus"></i></a>
+              <a href="{% url 'apps:prodetails' i.slug %}" class="btn btn-primary p-1" >Details</a>
+                </div>
+                </div>
+          </div>
+</div>
+    {% endfor %}
+
+{% endblock %}
+
